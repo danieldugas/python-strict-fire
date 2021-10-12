@@ -21,7 +21,7 @@ Python Fire is a library for automatically generating command line interfaces
 (CLIs) with a single line of code.
 
 It will turn any Python module, class, object, function, etc. (any Python
-component will work!) into a CLI. It's called Fire because when you call Fire(),
+component will work!) into a CLI. It's called Fire because when you call StrictFire(),
 it fires off your command.
 """.strip()
 
@@ -41,10 +41,10 @@ TEST_DEPENDENCIES = [
 ]
 
 VERSION = '0.4.0'
-URL = 'https://github.com/google/python-fire'
+URL = 'https://github.com/danieldugas/python-strict-fire'
 
 setup(
-    name='fire',
+    name='strictfire',
     version=VERSION,
     description=SHORT_DESCRIPTION,
     long_description=LONG_DESCRIPTION,
@@ -81,7 +81,7 @@ setup(
 
     keywords='command line interface cli python fire interactive bash tool',
 
-    packages=['fire', 'fire.console'],
+    packages=['strictfire', 'strictfire.console'],
 
     install_requires=DEPENDENCIES,
     tests_require=TEST_DEPENDENCIES,

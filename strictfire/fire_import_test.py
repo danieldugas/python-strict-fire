@@ -12,27 +12,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""As a Python Fire demo, a Collector collects widgets, and nobody knows why."""
+"""Tests importing the strictfire module."""
+
+import sys
 
 import strictfire
-
-from examples.widget import widget
-
-
-class Collector(object):
-  """A Collector has one Widget, but wants more."""
-
-  def __init__(self):
-    self.widget = widget.Widget()
-    self.desired_widget_count = 10
-
-  def collect_widgets(self):
-    """Returns all the widgets the Collector wants."""
-    return [widget.Widget() for _ in range(self.desired_widget_count)]
+from strictfire import testutils
+import mock
 
 
-def main():
-  strictfire.StrictFire(Collector(), name='collector')
+class FireImportTest(testutils.BaseTestCase):
+  """Tests importing Fire."""
+
+  def testFire(self):
+    with mock.patch.object(sys, 'argv', ['commandname']):
+      strictfire.StrictFire()
+
+  def testFireMethods(self):
+    self.assertIsNotNone(strictfire.StrictFire)
+
+  def testNoPrivateMethods(self):
+    self.assertTrue(hasattr(strictfire, 'StrictFire'))
+    self.assertFalse(hasattr(strictfire, '_Fire'))
+
 
 if __name__ == '__main__':
-  main()
+  testutils.main()

@@ -14,7 +14,7 @@
 
 """A simple command line tool for testing purposes."""
 
-import fire
+import strictfire
 
 
 def identity(arg=None):
@@ -22,7 +22,7 @@ def identity(arg=None):
 
 
 def main(_=None):
-  fire.Fire(identity, name='identity')
+  strictfire.StrictFire(identity, name='identity')
 
 if __name__ == '__main__':
   main()

@@ -12,27 +12,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""As a Python Fire demo, a Collector collects widgets, and nobody knows why."""
+"""Fuzz tests for the docstring parser module."""
 
-import strictfire
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 
-from examples.widget import widget
+from strictfire import docstrings
+from strictfire import testutils
 
-
-class Collector(object):
-  """A Collector has one Widget, but wants more."""
-
-  def __init__(self):
-    self.widget = widget.Widget()
-    self.desired_widget_count = 10
-
-  def collect_widgets(self):
-    """Returns all the widgets the Collector wants."""
-    return [widget.Widget() for _ in range(self.desired_widget_count)]
+from hypothesis import example
+from hypothesis import given
+from hypothesis import settings
+from hypothesis import strategies as st
 
 
-def main():
-  strictfire.StrictFire(Collector(), name='collector')
+class DocstringsFuzzTest(testutils.BaseTestCase):
+
+  @settings(max_examples=1000, deadline=1000)
+  @given(st.text(min_size=1))
+  @example('This is a one-line docstring.')
+  def test_fuzz_parse(self, value):
+    docstrings.parse(value)
+
 
 if __name__ == '__main__':
-  main()
+  testutils.main()

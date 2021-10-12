@@ -14,7 +14,7 @@
 
 """Tests for the cipher module."""
 
-from fire import testutils
+from strictfire import testutils
 
 from examples.cipher import cipher
 

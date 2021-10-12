@@ -15,7 +15,7 @@
 """The Caesar Shift Cipher example Fire CLI.
 
 This module demonstrates the use of Fire without specifying a target component.
-Notice how the call to Fire() in the main method doesn't indicate a component.
+Notice how the call to StrictFire() in the main method doesn't indicate a component.
 So, all local and global variables (including all functions defined in the
 module) are made available as part of the Fire CLI.
 
@@ -26,7 +26,7 @@ cipher caesar-encode 1 'Hello world!'  # Ifmmp xpsme!
 cipher caesar-decode 1 'Ifmmp xpsme!'  # Hello world!
 """
 
-import fire
+import strictfire
 
 
 def caesar_encode(n=0, text=''):
@@ -53,7 +53,7 @@ def _caesar_shift_char(n=0, char=' '):
 
 
 def main():
-  fire.Fire(name='cipher')
+  strictfire.StrictFire(name='cipher')
 
 if __name__ == '__main__':
   main()

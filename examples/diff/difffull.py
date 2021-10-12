@@ -18,7 +18,7 @@ This demonstrates the simplest possible way to turn a module into a command line
 interface with Python Fire. It exemplifies the power and shortcomings of relying
 on Python Fire's simplicity.
 
-See //fire/examples/diff/diff.py for another way of turning
+See //strictfire/examples/diff/diff.py for another way of turning
 difflib into a CLI that requires more code, but gives the developer more control
 over the CLI's API.
 
@@ -36,16 +36,16 @@ difffull unified-diff A B [FROMFILE] [TOFILE] [FROMFILEDATE] [TOFILEDATE] [N]
 difffull HtmlDiff - make-file FROMLINES TOLINES [FROMDESC] [TODESC] [CONTEXT]
 
 For more useful versions of those last four commands using Python Fire, see
-//fire/examples/diff:diff.par
+//strictfire/examples/diff:diff.par
 """
 
 import difflib
 
-import fire
+import strictfire
 
 
 def main():
-  fire.Fire(difflib, name='difffull')
+  strictfire.StrictFire(difflib, name='difffull')
 
 if __name__ == '__main__':
   main()

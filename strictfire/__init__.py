@@ -12,27 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""As a Python Fire demo, a Collector collects widgets, and nobody knows why."""
+"""The Python Fire module."""
 
-import strictfire
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 
-from examples.widget import widget
+from strictfire.core import StrictFire
 
-
-class Collector(object):
-  """A Collector has one Widget, but wants more."""
-
-  def __init__(self):
-    self.widget = widget.Widget()
-    self.desired_widget_count = 10
-
-  def collect_widgets(self):
-    """Returns all the widgets the Collector wants."""
-    return [widget.Widget() for _ in range(self.desired_widget_count)]
-
-
-def main():
-  strictfire.StrictFire(Collector(), name='collector')
-
-if __name__ == '__main__':
-  main()
+__all__ = ['StrictFire']
+__version__ = '0.4.0'
