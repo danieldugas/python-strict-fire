@@ -42,7 +42,7 @@ For detailed information on this command, run:
 
 Refer to [this Issue](https://github.com/google/python-fire/issues/168) for more information.
 
-This was done because the current non-strict behavior is risky in production,
+This fork was created because the current non-strict behavior is risky in production,
 and though other solutions exist (e.g. decorators), they would add code overhead to several projects.
 
 There is no intention of disrespecting the original project / authors,
