@@ -2,9 +2,26 @@
 
 Strict Fire is a temporary patch to the Fire python library. Whereas Fire currently ignores unknown arguments, Strict Fire always complains by default.
 
-Refer to [this Issue](https://github.com/google/python-fire/issues/168) for more information.
+Install with
+
+```
+pip install strictfire
+```
+
+To use, replace the Fire() method with StrictFire()
+
+```
+from strictfire import StrictFire
+
+def myfunc(arg1, arg2=0):
+  print((arg1, arg2))
+
+StrictFire(myfunc)
+```
 
 # Notes
+
+Refer to [this Issue](https://github.com/google/python-fire/issues/168) for more information.
 
 This was done because the current non-strict behavior is risky in production,
 and though other solutions exist (e.g. decorators), they would add code overhead to several projects.
