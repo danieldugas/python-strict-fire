@@ -678,7 +678,7 @@ def _CallAndUpdateTrace(component, args, component_trace, treatment='class',
   # In strict mode, raise an error if unknown arguments are present
   if strict:
       if remaining_args:
-          raise ValueError("Unknown argument{}: {}".format(
+          raise FireError("Unknown argument{}: {}".format(
               "s" if len(remaining_args) > 1 else "", remaining_args))
 
   # Call the function.

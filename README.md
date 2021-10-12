@@ -19,6 +19,25 @@ def myfunc(arg1, arg2=0):
 StrictFire(myfunc)
 ```
 
+Things work like before
+
+```
+$ python test.py --arg1 1 --arg2 2
+(1, 2)
+```
+
+Except if you pass an unexpected argument
+
+```
+$ python test.py --arg1 1 --arg3 2
+ERROR: Unknown arguments: ['--arg3', '2']
+Usage: test.py ARG1 <flags>
+  optional flags:        --arg2
+
+For detailed information on this command, run:
+  test.py --help
+```
+
 # Notes
 
 Refer to [this Issue](https://github.com/google/python-fire/issues/168) for more information.
