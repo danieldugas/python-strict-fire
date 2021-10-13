@@ -1,8 +1,10 @@
-# Python Strict Fire [![PyPI](https://img.shields.io/pypi/pyversions/fire.svg?style=plastic)](https://github.com/google/python-fire)
+# Python Strict Fire 
 
-Strict Fire is a temporary patch to the Fire python library. Whereas Fire currently ignores unknown arguments, StrictFire always complains by default. Be aware that **this breaks function chaining**. For those cases you can keep using fire.Fire alongside strictfire.StrictFire.
+Strict Fire is a temporary patch to the Fire python library. Whereas Fire currently ignores unknown arguments*, StrictFire always complains by default. Be aware that **this breaks function chaining**. For those cases you can keep using `fire.Fire` alongside `strictfire.StrictFire`.
 
-Install with
+\* Fire runs the function first, *then* complains about unknown arguments. StrictFire does not run anything if there are unknown arguments.
+
+# Quick Guide
 
 ```
 pip install strictfire
